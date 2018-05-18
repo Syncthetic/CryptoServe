@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AccountService } from './account/account.service';
+import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'CryptoServ';
+
+  constructor(
+    public account: AccountService,
+    public notification: NotificationService
+  ) { }
 }

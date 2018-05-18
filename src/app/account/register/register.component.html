@@ -1,0 +1,22 @@
+<div id="register-form">
+  <h1>Register</h1>
+  <p>
+  <input #user type="text" name="login" id="login" placeholder="Username">
+</p>
+
+<p>
+  <input #pass type="password" name="password" id="password" placeholder="Password">
+</p>
+
+<p class="register-submit">
+  <button type="submit" (click)="register(user, pass)" class="login-button">Register</button>
+</p>
+
+<nav>
+  <span>or </span><a routerLink="/login" routerLinkActive="active">login</a>
+</nav>
+</div>
+
+<div *ngIf="data">
+  {{ data }}
+</div>

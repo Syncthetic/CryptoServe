@@ -1,0 +1,23 @@
+<h1>Decrypt Files</h1>
+<div *ngIf="keySet; else nokey">
+  <p>Your shared key is currently set (updates as you type)</p>
+  <input #pass type="password" placeholder="Update Shared Key?" (keyup)="updateKey($event)">
+  <br>
+</div>
+<ng-template #nokey>
+  <p>You must set a shared key</p>
+  <input #pass type="password" placeholder="Share Key">
+  <button (click)="setKey(pass)">Set Key</button>
+  <br>
+</ng-template>
+
+<button (click)="getFiles()">Select Files</button>
+
+
+
+<div *ngFor="let file of _fileService.files">
+  <p> {{ file.name }}</p>
+  <button (click)="decrypt(file.name, pass)">Decrypt</button>
+  <button (click)="_fileService.upload(file.name)">Upload</button>
+  <!-- <button (click)="decrypt(file.name, pass)">Decrypt File: {{ file.name }}</button> -->
+</div>

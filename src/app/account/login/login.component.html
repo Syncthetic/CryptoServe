@@ -1,0 +1,28 @@
+<div id="login-form">
+  <h1>Login</h1>
+  <p>
+  <input #user type="text" name="login" id="login" placeholder="Username">
+</p>
+
+<p>
+  <input #pass type="password" name="password" id="password" placeholder="Password">
+</p>
+
+<p class="login-submit">
+  <button type="submit" (click)="login(user, pass)" class="login-button">Login</button>
+</p>
+
+<nav>
+  <span>or </span><a routerLink="/register" routerLinkActive="active">register</a>
+</nav>
+</div>
+
+<!-- <div *ngIf="loginAttempts > 0">
+  <p>Login Attempts: {{ loginAttempts }}</p>
+  <div *ngIf="account.information.loggedIn; else unsuccessful">
+    <p>Login success!</p>
+  </div>
+  <ng-template #unsuccessful>
+    <p>Login failure!</p>
+  </ng-template>
+</div> -->
