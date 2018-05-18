@@ -61,8 +61,9 @@ export class FileService {
     }
   }
 
-  upload(fileData: {fileName: String, fileContent: any}) {
-
+  upload(fileName) {
+    let f = this.getContents(fileName)
+    let fileData = { name: f.name, content: f.content, owner_id: this.account.information.id }
     function responseValue(res) {
       console.log('Upload Response: ', res)
     }
@@ -73,7 +74,6 @@ export class FileService {
         'accept': 'application/json',
       })
     }
-    fileData['owner_id'] = this.account.information.id
     this.api.post('file', fileData, responseValue, httpOptions)
   }
 
@@ -89,7 +89,7 @@ export class FileService {
         'RequestedBy': this.account.information.username
        })
      }
-     console.log(this.account.information.id, this.api.getToken('auth_token'))
-    this.api.get(`user/files/${this.account.information.username}`, ()=>{}, httpOptions)
+     console.log(`user/files/${this.account.information.id}`, this.account.information.id, this.api.getToken('auth_token'))
+    this.api.get(`user/files/${this.account.information.id}`, ()=>{}, httpOptions)
   }
 }

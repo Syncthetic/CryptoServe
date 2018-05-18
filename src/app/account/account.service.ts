@@ -54,7 +54,9 @@ export class AccountService {
     if (!username) return this.notification.add('Invalid Fields', 'No username set');
     if (!password) return this.notification.add('Invalid Fields', 'No password set');
     function setAuth (data) {
+      console.log('In setAuth');
       this.api.addToken('auth_token', data.auth_token)
+      console.log(this.api.getToken('auth_token'))
       if (this.api.tokens.auth_token) this.fetchInformation(username)
       else this.notification.add(`Login failed!`)
     }
