@@ -2,7 +2,7 @@
 
 <div id="left-menu">
   <div class="section">
-    <img class="profile" src="../src/assets/images/avatar.png" alt="user picture">
+    <img class="profile" src="../cryptoserve/assets/images/avatar.png" alt="user picture">
     <p *ngIf="account.information.loggedIn" class="text-center bold">{{ account.information.username}}</p>
   </div>
 
@@ -13,7 +13,7 @@
         <a routerLink="/" routerLinkActive="active">Home</a>
       </li>
       <li><i class="fas fa-bell"></i>
-        <a routerLink="/notifications">Alerts</a>
+        <a routerLink="/notifications">Alerts </a>
         <span>{{ notification.notifications.length }}</span>
       </li>
     </ul>
