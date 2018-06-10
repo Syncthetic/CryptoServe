@@ -1,22 +1,28 @@
-<div id="register-form">
-  <h1>Register</h1>
-  <p>
-  <input #user type="text" name="login" id="login" placeholder="Username">
-</p>
-
-<p>
-  <input #pass type="password" name="password" id="password" placeholder="Password">
-</p>
-
-<p class="register-submit">
-  <button type="submit" (click)="register(user, pass)" class="login-button">Register</button>
-</p>
-
-<nav>
-  <span>or </span><a routerLink="/login" routerLinkActive="active">login</a>
-</nav>
-</div>
-
-<div *ngIf="data">
-  {{ data }}
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <p class="h5 text-center mb-4">Register</p>    
+      <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input #user type="text" id="form-user-name" class="form-control" mdbInputDirective>
+        <label for="form-user-name">Username</label>
+      </div>
+      
+      <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input #pass type="password" formControlName="defaultFormPass" id="form-user-pass" class="form-control" mdbInputDirective>
+        <label for="form-user-pass">Your password</label>
+      </div>
+  
+      <div class="text-center">
+        <button type="submit" (click)="register(user, pass)" class="btn btn-default waves-light" mdbWavesEffect>Register</button>
+      </div>
+  </div>
+  <div class="col-md-3">
+      <p class="h5 text-center mb-4">Already have an account?</p>
+      <p class="text-center mb-4">
+          <a routerLink="/login" class="nav-link waves-effect waves-light" mdbWavesEffect>Login
+          </a>
+      </p>
+  </div>
 </div>

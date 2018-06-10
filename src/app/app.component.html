@@ -1,56 +1,57 @@
 <!-- <h1>CryptoServ</h1> -->
 
-<div id="left-menu">
-  <div class="section">
-    <img class="profile" src="../cryptoserve/assets/images/avatar.png" alt="user picture">
-    <p *ngIf="account.information.loggedIn" class="text-center bold">{{ account.information.username}}</p>
-  </div>
 
-  <div class="section">
-    <h3 class="title">Main</h3>
-    <ul>
-      <li class="active"><i class="fas fa-home"></i>
-        <a routerLink="/" routerLinkActive="active">Home</a>
-      </li>
-      <li><i class="fas fa-bell"></i>
-        <a routerLink="/notifications">Alerts </a>
-        <span>{{ notification.notifications.length }}</span>
-      </li>
-    </ul>
-  </div>
+<!-- <img class="profile" src="../cryptoserve/assets/images/avatar.png" alt="user picture">
+    <p *ngIf="account.information.loggedIn" class="text-center bold">{{ account.information.username}}</p> -->
 
-  <div class="section">
-    <h3 class="title">Account</h3>
-    <ul>
-      <li><i class="fas fa-address-card"></i>
-        <a routerLink="/account/settings">Settings</a>
-      </li>
-      <li><i class="fas fa-sign-in-alt"></i>
-        <a routerLink="/login">Login</a>
-      </li>
-    </ul>
-  </div>
 
-  <div class="section">
-      <h3 class="title">API</h3>
-      <ul>
-        <li><i class="fas fa-code-branch"></i>
-          <a routerLink="/api">Tokens</a>
-        </li>
-      </ul>
-    </div>
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
 
-  <div class="section">
-    <h3 class="title">File</h3>
-    <ul>
-      <li><i class="fas fa-lock"></i>
-        <a routerLink="/files/encrypt">Encrypt</a>
-      </li>
-      <li><i class="fas fa-file"></i>
-        <a routerLink="/files/decrypt">Decrypt</a>
-      </li>
-    </ul>
-  </div>
+    <!-- Navbar brand -->
+    <logo>
+      <a class="navbar-brand" router-link="/account/settings">
+        <img style="width:50px" src="../cryptoserve/assets/images/avatar.png" alt="user picture">
+    </a>
+  </logo>
 
-</div> <!-- end left-menu -->
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a routerLink="/" class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/account/settings" class="nav-link waves-light" mdbWavesEffect>Settings</a>
+            </li>
+            
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                Account Services<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/login">Login</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/account/settings">Settings</a>
+                </div>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                File Services<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/files/encrypt">Encrypt</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/files/decrypt">Decrypt</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/files/decrypt">Delete</a>
+                </div>
+            </li>
+
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+
 <router-outlet></router-outlet>

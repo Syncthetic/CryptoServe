@@ -1,6 +1,6 @@
 // @angular imports
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 // Import Services
@@ -21,6 +21,7 @@ import { ApiComponent } from './api/api.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { EncryptComponent } from './files/encrypt/encrypt.component';
 import { DecryptComponent } from './files/decrypt/decrypt.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const routes: Routes = [
    {
@@ -61,8 +62,10 @@ const routes: Routes = [
         onSameUrlNavigation: "reload",
        // enableTracing: true
       }
-    )
+    ),
+    MDBBootstrapModule.forRoot()
    ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ApiService, FileService, AccountService, AesService, NotificationService],
   bootstrap: [AppComponent]
 })

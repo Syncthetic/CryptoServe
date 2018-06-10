@@ -1,28 +1,28 @@
-<div id="login-form">
-  <h1>Login</h1>
-  <p>
-  <input #user type="text" name="login" id="login" placeholder="Username">
-</p>
-
-<p>
-  <input #pass type="password" name="password" id="password" placeholder="Password">
-</p>
-
-<p class="login-submit">
-  <button type="submit" (click)="login(user, pass)" class="login-button">Login</button>
-</p>
-
-<nav>
-  <span>or </span><a routerLink="/register" routerLinkActive="active">register</a>
-</nav>
-</div>
-
-<!-- <div *ngIf="loginAttempts > 0">
-  <p>Login Attempts: {{ loginAttempts }}</p>
-  <div *ngIf="account.information.loggedIn; else unsuccessful">
-    <p>Login success!</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <p class="h5 text-center mb-4">Login</p>    
+      <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input #user type="text" id="form-username" class="form-control" mdbInputDirective>
+        <label for="form-username">Username</label>
+      </div>
+      
+      <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input #pass type="password" formControlName="defaultFormPass" id="defaultForm-pass" class="form-control" mdbInputDirective>
+        <label for="defaultForm-pass">Your password</label>
+      </div>
+  
+      <div class="text-center">
+        <button type="submit" (click)="login(user, pass)" class="btn btn-default waves-light" mdbWavesEffect>Login</button>
+      </div>
   </div>
-  <ng-template #unsuccessful>
-    <p>Login failure!</p>
-  </ng-template>
-</div> -->
+  <div class="col-md-3">
+      <p class="h5 text-center mb-4">Need an account?</p>
+      <p class="text-center mb-4">
+          <a routerLink="/register" class="nav-link waves-effect waves-light" mdbWavesEffect>Register now
+          </a>
+      </p>
+  </div>
+</div>
